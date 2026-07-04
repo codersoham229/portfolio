@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #030303;
+  --color-foreground: #f4f4f5;
+  --color-primary: #7c4dff;
+  --color-primary-dark: #5e35b1;
+  --color-success: #00c853;
+  --color-panel: #09090b;
+  --color-panel-border: rgba(39, 39, 42, 0.5);
+  
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-geist-mono), Courier, monospace;
+  
+  --animate-border-beam: border-beam 4s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s infinite;
+  --animate-pulse-slow: pulse-slow 8s ease-in-out infinite;
+  --animate-pulse-fast: pulse-fast 1s ease-in-out infinite;
+  
+  @keyframes border-beam {
+    0% { offset-distance: 0%; }
+    100% { offset-distance: 100%; }
+  }
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.1); }
+  }
+  @keyframes pulse-fast {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+}
+
+:root {
+  --background: #030303;
+  --foreground: #f4f4f5;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(9, 9, 11, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(63, 63, 70, 0.4);
+}
+
+.glass-panel-heavy {
+  background: rgba(9, 9, 11, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(63, 63, 70, 0.5);
+}
+
+/* Grid overlay background */
+.grid-overlay {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(9, 9, 11, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(63, 63, 70, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 77, 255, 0.6);
+}
+
+/* Hide arrow icons or standard checkboxes */
+.nav-toggle {
+  display: none;
+}
+
+/* Custom glow animations */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 25px rgba(124, 77, 255, 0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.glow-effect:hover::after {
+  opacity: 1;
+}
+
+/* Interactive elements */
+button, a {
+  cursor: pointer;
+}
