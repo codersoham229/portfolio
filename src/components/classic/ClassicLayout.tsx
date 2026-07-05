@@ -99,15 +99,16 @@ export default function ClassicLayout({ onToggleMode }: ClassicLayoutProps) {
               <Code size={13} />
               <span>IDE Workspace Mode</span>
             </AnimatedButton>
-            <a 
+            <AnimatedButton 
+              as="a"
               href="/soham.pdf" 
-              download
+              download="Soham_Malekar_CV.pdf"
               onClick={handleLinkClick}
-              className="p-2 text-zinc-400 hover:text-white transition-colors"
-              title="Download CV"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-900 border border-zinc-800 text-xs font-semibold rounded-md text-zinc-350 hover:bg-zinc-800 hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.02)]"
             >
-              <FileText size={18} />
-            </a>
+              <FileText size={13} className="text-primary" />
+              <span>Download CV</span>
+            </AnimatedButton>
           </div>
         </div>
       </header>
@@ -159,10 +160,20 @@ export default function ClassicLayout({ onToggleMode }: ClassicLayoutProps) {
               as="a"
               href="#contact"
               onClick={handleLinkClick}
-              className="px-6 py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 hover:text-white font-semibold text-sm flex items-center gap-1.5"
+              className="px-6 py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-350 hover:text-white font-semibold text-sm flex items-center gap-1.5"
             >
               <span>Get in Touch</span>
               <ChevronDown size={14} className="text-zinc-500 group-hover:translate-y-1 transition-transform" />
+            </AnimatedButton>
+            <AnimatedButton
+              as="a"
+              href="/soham.pdf"
+              download="Soham_Malekar_CV.pdf"
+              onClick={handleLinkClick}
+              className="px-6 py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-350 hover:text-white font-semibold text-sm flex items-center gap-2 shadow-[0_0_15px_rgba(255,255,255,0.02)]"
+            >
+              <FileText size={16} className="text-primary" />
+              <span>Download CV</span>
             </AnimatedButton>
           </motion.div>
         </div>
@@ -227,9 +238,21 @@ export default function ClassicLayout({ onToggleMode }: ClassicLayoutProps) {
       {/* About & Education Section */}
       <section id="about" className="relative z-10 max-w-6xl mx-auto px-4 py-16 border-t border-zinc-900/60">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h2 className="text-xs font-bold uppercase tracking-widest text-primary font-mono mb-2">// EDUCATION & BACKGROUND</h2>
-            <h3 className="text-2xl font-bold text-white">Academic Foundation</h3>
+          <div className="flex flex-col gap-4 items-start">
+            <div>
+              <h2 className="text-xs font-bold uppercase tracking-widest text-primary font-mono mb-2">// EDUCATION & BACKGROUND</h2>
+              <h3 className="text-2xl font-bold text-white">Academic Foundation</h3>
+            </div>
+            <AnimatedButton
+              as="a"
+              href="/soham.pdf"
+              download="Soham_Malekar_CV.pdf"
+              onClick={handleLinkClick}
+              className="px-5 py-2.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-350 hover:text-white font-semibold text-xs flex items-center gap-2 shadow-[0_0_15px_rgba(255,255,255,0.02)]"
+            >
+              <FileText size={14} className="text-primary" />
+              <span>Download CV</span>
+            </AnimatedButton>
           </div>
           <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="glass-panel p-6 rounded-xl border border-zinc-900 space-y-4">

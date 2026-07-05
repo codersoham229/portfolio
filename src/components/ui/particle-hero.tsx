@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FileText } from "lucide-react";
+import AnimatedButton from "@/components/ui/animated-button";
 
 interface Particle {
   x: number;
@@ -449,6 +451,17 @@ export function ParticleHero() {
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   <span>Open to Global Remote Work</span>
                 </div>
+              </div>
+              <div className="pt-3 border-t border-zinc-900/60 w-full">
+                <AnimatedButton
+                  as="a"
+                  href="/soham.pdf"
+                  download="Soham_Malekar_CV.pdf"
+                  className="w-full py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-850 text-zinc-350 hover:text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(255,255,255,0.02)]"
+                >
+                  <FileText size={14} className="text-primary" />
+                  <span>Download CV</span>
+                </AnimatedButton>
               </div>
             </div>
           </div>

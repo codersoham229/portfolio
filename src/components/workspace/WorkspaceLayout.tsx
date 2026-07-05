@@ -380,7 +380,7 @@ export default function WorkspaceLayout({ onToggleMode }: WorkspaceLayoutProps) 
                         <AnimatedButton 
                           as="a"
                           href="/soham.pdf" 
-                          download
+                          download="Soham_Malekar_CV.pdf"
                           className="px-4 py-2 bg-primary border-primary text-white font-semibold rounded-md transition-all text-xs flex items-center gap-2"
                         >
                           <FileText size={14} />
