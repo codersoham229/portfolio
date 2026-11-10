@@ -52,10 +52,10 @@ export function createRenderer({ canvas }: RendererOptions) {
       mobileQuery.matches
         ? {
             centerX: 0,
-            centerY: 0,
-            cameraRoll: 0,
-            mouseYaw: 0,
-            centerFade: 1,
+            centerY: 0.32,
+            cameraRoll: -0.2,
+            mouseYaw: 0.05,
+            centerFade: 0,
           }
         : desktopLayout
     );

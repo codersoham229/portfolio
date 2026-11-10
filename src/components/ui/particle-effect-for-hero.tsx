@@ -377,7 +377,7 @@ export const Navigation: React.FC = () => {
   };
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-20 flex justify-between items-center p-6 md:p-8">
+    <nav className="absolute top-0 left-0 w-full z-20 flex justify-between items-center p-5 sm:p-6 md:p-8">
       {/* Brand logo on left - flex items-start */}
       <div className="flex items-center space-x-2 w-1/3 justify-start">
         <a href="#hero" onClick={(e) => handleScrollTo(e, "hero")} className="flex items-center space-x-2 group cursor-pointer">
@@ -450,10 +450,10 @@ export const HeroContent: React.FC = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-10 flex flex-col items-start justify-center pointer-events-none px-6 md:px-16 lg:px-28">
-      <div className="max-w-3xl w-full text-left space-y-6 pt-12 relative z-10">
+    <div className="absolute inset-0 z-10 flex flex-col items-start justify-center pointer-events-none px-5 sm:px-8 md:px-16 lg:px-28">
+      <div className="max-w-3xl w-full text-left space-y-4 sm:space-y-6 pt-16 sm:pt-12 relative z-10">
         <div className="inline-block animate-fade-in-up">
-          <span className="py-1 px-3 border border-white/20 rounded-full text-xs font-mono text-white/60 tracking-widest uppercase bg-white/5 backdrop-blur-sm">
+          <span className="py-1 px-3 border border-white/20 rounded-full text-[10px] sm:text-xs font-mono text-white/70 tracking-wider sm:tracking-widest uppercase bg-white/5 backdrop-blur-sm">
             Information Technology Student & Builder
           </span>
         </div>
@@ -475,7 +475,7 @@ export const HeroContent: React.FC = () => {
           }
         `}</style>
 
-        <h1 className="text-6xl md:text-8xl lg:text-[105px] font-black tracking-tighter leading-none uppercase mix-blend-difference text-white">
+        <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[105px] font-black tracking-tighter leading-[0.95] sm:leading-none uppercase mix-blend-difference text-white">
           <span 
             className="text-transparent bg-clip-text premium-text-shine premium-text-glow"
             style={{
@@ -503,15 +503,15 @@ export const HeroContent: React.FC = () => {
           {showCursor2 && <span className="text-white animate-pulse">_</span>}
         </h1>
         
-        <p className="max-w-2xl text-lg md:text-xl text-white/70 font-light leading-relaxed min-h-[3.5em]">
+        <p className="max-w-2xl text-sm sm:text-base md:text-xl text-white/80 font-light leading-relaxed min-h-[4em] sm:min-h-[3.5em]">
           {typedDesc}
           {showCursor3 && <span className="text-primary animate-pulse font-bold">|</span>}
         </p>
 
-        <div className="pt-4 pointer-events-auto">
+        <div className="pt-2 sm:pt-4 pointer-events-auto">
           <AnimatedButton 
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-4 bg-zinc-950 border border-zinc-800 text-white rounded-full font-bold tracking-wide cursor-pointer text-sm flex items-center gap-2"
+            className="px-6 py-3 sm:px-8 sm:py-4 bg-zinc-950/80 backdrop-blur-md border border-zinc-800 text-white rounded-full font-bold tracking-wide cursor-pointer text-xs sm:text-sm flex items-center gap-2 hover:bg-zinc-900 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)]"
           >
             <span>Explore Work</span>
             <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
@@ -528,7 +528,7 @@ export default function App() {
   return (
     <div className="relative w-full h-screen bg-transparent overflow-hidden selection:bg-blue-500 selection:text-white">
       {/* Optimized WebGPU Black Hole Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <OptimizedBlackHole />
       </div>
       <Navigation />
