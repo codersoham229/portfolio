@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import { MousePointer2, ArrowRight } from "lucide-react";
 import AnimatedButton from "./animated-button";
 import { motion } from "framer-motion";
+import OptimizedBlackHole from "./optimized-black-hole";
 
 // --- Types ---
 
@@ -398,187 +399,6 @@ export const Navigation: React.FC = () => {
   );
 };
 
-const Web3UniverseLogo = () => {
-  return (
-    <div className="absolute right-6 md:right-20 lg:right-32 top-1/2 -translate-y-1/2 pointer-events-none select-none hidden lg:flex items-center justify-center z-0">
-      <div className="relative transform scale-150 md:scale-[2] lg:scale-[2.4] flex items-center justify-center">
-        {/* Ambient Deep Space Glow (White/Silver instead of yellow) */}
-        <div className="absolute w-[450px] h-[450px] bg-gradient-to-tr from-zinc-800/10 via-zinc-950/5 to-transparent rounded-full blur-[80px] -z-20 animate-pulse" />
-
-        <div className="ring-3">
-          <div className="ring-2">
-            <div className="ring-1">
-              <div className="black-hole" />
-              <div className="glow" />
-            </div>
-          </div>
-        </div>
-
-        {/* Primary Accretion Disk (White-hot crescents - 8 elements for balanced layout/performance) */}
-        <div className="container-disk">
-          {[...Array(8)].map((_, i) => (
-            <svg key={`white-${i}`} className={`crescent crescent-${i + 1}`} viewBox="0 0 50 50">
-              <path d="M 0 0 C 54 50 185 57 226 0 C 198 39 35 32 0 0" fill="#ffffff" />
-            </svg>
-          ))}
-        </div>
-
-        {/* Outer Gravitational Light Ring (Silver/Grey crescents - 8 elements) */}
-        <div className="container-disk-outer">
-          {[...Array(8)].map((_, i) => (
-            <svg key={`silver-${i}`} className={`crescent-gold crescent-gold-${i + 1}`} viewBox="0 0 50 50">
-              <path d="M 0 0 C 54 50 185 57 226 0 C 198 39 35 32 0 0" fill="#e4e4e7" />
-            </svg>
-          ))}
-        </div>
-
-        {/* Counter-Rotating Photon Sphere Ring (Light Grey/White crescents - 8 elements) */}
-        <div className="container-disk-inner">
-          {[...Array(8)].map((_, i) => (
-            <svg key={`photon-${i}`} className={`crescent-photon crescent-photon-${i + 1}`} viewBox="0 0 50 50">
-              <path d="M 0 0 C 54 50 185 57 226 0 C 198 39 35 32 0 0" fill="#f4f4f5" />
-            </svg>
-          ))}
-        </div>
-
-        <style>{`
-          .ring-3 {
-            box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.15), 0px 0px 45px 20px rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            padding: 2px;
-          }
-          .ring-2 {
-            box-shadow: 0px 0px 2px 10px #000;
-            border-radius: 50%;
-            padding: 2px;
-          }
-          .ring-1 {
-            box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.2), 0px 0px 40px 15px rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            padding: 2px;
-          }
-          .black-hole {
-            height: 140px;
-            aspect-ratio: 1;
-            background-color: black;
-            border-radius: 50%;
-            box-shadow:
-              0px 0px 30px 15px #000,
-              inset 0px 0px 15px #ffffffcc;
-          }
-          .glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 420px;
-            height: 420px;
-            background: radial-gradient(
-              circle,
-              rgba(255, 255, 255, 0.25) 5%,
-              rgba(255, 255, 255, 0.1) 25%,
-              rgba(255, 255, 255, 0.02) 50%,
-              rgba(255, 255, 255, 0) 75%
-            );
-            border-radius: 50%;
-            z-index: -1;
-          }
-          .container-disk {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotateX(75deg);
-          }
-          .container-disk-outer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotateX(68deg) rotateZ(20deg);
-          }
-          .container-disk-inner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotateX(80deg) rotateZ(-25deg);
-          }
-          .crescent {
-            position: absolute;
-            color: transparent !important;
-            top: 50%;
-            left: 50%;
-            transform: rotate(180deg);
-            width: 380px;
-            height: 42px;
-            clip-path: ellipse(60% 100% at 100% 50%);
-            offset-path: path("M 0,-100 A 100,100 0 1,1 0,100 A 100,100 0 1,1 0,-100 Z");
-            offset-distance: 0%;
-            opacity: 0;
-            filter: blur(2px);
-            will-change: transform, opacity;
-          }
-          .crescent-gold {
-            position: absolute;
-            color: transparent !important;
-            top: 50%;
-            left: 50%;
-            transform: rotate(180deg);
-            width: 450px;
-            height: 55px;
-            clip-path: ellipse(60% 100% at 100% 50%);
-            offset-path: path("M 0,-115 A 115,115 0 1,1 0,115 A 115,115 0 1,1 0,-115 Z");
-            offset-distance: 0%;
-            opacity: 0;
-            filter: blur(2.5px);
-            will-change: transform, opacity;
-          }
-          .crescent-photon {
-            position: absolute;
-            color: transparent !important;
-            top: 50%;
-            left: 50%;
-            transform: rotate(180deg);
-            width: 340px;
-            height: 38px;
-            clip-path: ellipse(60% 100% at 100% 50%);
-            offset-path: path("M 0,-90 A 90,90 0 1,1 0,90 A 90,90 0 1,1 0,-90 Z");
-            offset-distance: 0%;
-            opacity: 0;
-            filter: blur(1.5px);
-            will-change: transform, opacity;
-          }
-
-          /* Majestic slow speed (12s loops) with 1.5s delay intervals for 8 elements */
-          .crescent-1, .crescent-gold-1, .crescent-photon-1 { animation: moveOval 12000ms linear 0ms infinite; }
-          .crescent-2, .crescent-gold-2, .crescent-photon-2 { animation: moveOval 12000ms linear 1500ms infinite; }
-          .crescent-3, .crescent-gold-3, .crescent-photon-3 { animation: moveOval 12000ms linear 3000ms infinite; }
-          .crescent-4, .crescent-gold-4, .crescent-photon-4 { animation: moveOval 12000ms linear 4500ms infinite; }
-          .crescent-5, .crescent-gold-5, .crescent-photon-5 { animation: moveOval 12000ms linear 6000ms infinite; }
-          .crescent-6, .crescent-gold-6, .crescent-photon-6 { animation: moveOval 12000ms linear 7500ms infinite; }
-          .crescent-7, .crescent-gold-7, .crescent-photon-7 { animation: moveOval 12000ms linear 9000ms infinite; }
-          .crescent-8, .crescent-gold-8, .crescent-photon-8 { animation: moveOval 12000ms linear 10500ms infinite; }
-
-          @keyframes moveOval {
-            10% {
-              offset-distance: 15%;
-              opacity: 0;
-            }
-            22% {
-              opacity: 0.95;
-            }
-            85% {
-              opacity: 0.95;
-            }
-            100% {
-              offset-distance: 90%;
-              opacity: 0;
-            }
-          }
-        `}</style>
-      </div>
-    </div>
-  );
-};
-
 export const HeroContent: React.FC = () => {
   const [typedTitleLine1, setTypedTitleLine1] = useState("");
   const [typedTitleLine2, setTypedTitleLine2] = useState("");
@@ -631,9 +451,6 @@ export const HeroContent: React.FC = () => {
 
   return (
     <div className="absolute inset-0 z-10 flex flex-col items-start justify-center pointer-events-none px-6 md:px-16 lg:px-28">
-      {/* Web3 Holographic Universe Logo */}
-      <Web3UniverseLogo />
-
       <div className="max-w-3xl w-full text-left space-y-6 pt-12 relative z-10">
         <div className="inline-block animate-fade-in-up">
           <span className="py-1 px-3 border border-white/20 rounded-full text-xs font-mono text-white/60 tracking-widest uppercase bg-white/5 backdrop-blur-sm">
@@ -710,10 +527,12 @@ export const HeroContent: React.FC = () => {
 export default function App() {
   return (
     <div className="relative w-full h-screen bg-transparent overflow-hidden selection:bg-blue-500 selection:text-white">
+      {/* Optimized WebGPU Black Hole Background */}
+      <div className="absolute inset-0 z-0">
+        <OptimizedBlackHole />
+      </div>
       <Navigation />
       <HeroContent />
-      
-
     </div>
   );
 }
