@@ -527,8 +527,8 @@ export const HeroContent: React.FC = () => {
 export default function App() {
   return (
     <div className="relative w-full h-screen bg-transparent overflow-hidden selection:bg-blue-500 selection:text-white">
-      {/* Optimized WebGPU Black Hole Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* Optimized WebGPU Black Hole Background - Shown on Desktop and Laptop */}
+      <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
         <OptimizedBlackHole />
       </div>
       <Navigation />

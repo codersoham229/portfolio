@@ -12,17 +12,49 @@ export function Example({ className }: { className?: string } = {}) {
     let cancelled = false;
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const renderer = createRenderer({ canvas });
-    void renderer.ready
-      .then(() => {
-        if (!cancelled) setIsReady(true);
-      })
-      .catch((err) => {
-        console.warn("Optimized black hole WebGPU initialization:", err);
-      });
+
+    // Only run the WebGPU black hole on desktop and laptop screens (>= 768px)
+    const mql = window.matchMedia("(min-width: 768px)");
+    let renderer: ReturnType<typeof createRenderer> | null = null;
+
+    const start = () => {
+      if (renderer || !mql.matches || cancelled) return;
+      renderer = createRenderer({ canvas });
+      void renderer.ready
+        .then(() => {
+          if (!cancelled) setIsReady(true);
+        })
+        .catch((err) => {
+          console.warn("Optimized black hole WebGPU initialization:", err);
+        });
+    };
+
+    const stop = () => {
+      if (renderer) {
+        renderer.dispose();
+        renderer = null;
+        setIsReady(false);
+      }
+    };
+
+    if (mql.matches) {
+      start();
+    }
+
+    const handler = (e: MediaQueryListEvent) => {
+      if (e.matches) {
+        start();
+      } else {
+        stop();
+      }
+    };
+
+    mql.addEventListener("change", handler);
+
     return () => {
       cancelled = true;
-      renderer.dispose();
+      mql.removeEventListener("change", handler);
+      stop();
     };
   }, []);
 
