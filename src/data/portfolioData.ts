@@ -100,7 +100,7 @@ export const portfolioData = {
     }
   ] as SkillCategory[],
   contact: {
-    email: "sohamgamer99@gmail.com",
+    email: "sohammalekar29@gmail.com",
     phone: "+91 8928463736",
     location: "Mumbai, Maharashtra",
     github: "https://github.com/codersoham229/",

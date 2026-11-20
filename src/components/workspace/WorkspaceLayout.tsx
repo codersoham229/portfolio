@@ -111,7 +111,7 @@ export default function WorkspaceLayout({ onToggleMode }: WorkspaceLayoutProps) 
     
     triggerSound("click");
     setFormStatus("sending");
-    setContactLogs(["Initializing secure POST connection to mail server...", "Endpoint resolves to sohamgamer99@gmail.com"]);
+    setContactLogs(["Initializing secure POST connection to mail server...", "Endpoint resolves to sohammalekar29@gmail.com"]);
 
     setTimeout(() => {
       setContactLogs(prev => [...prev, "Authorizing handshake protocols...", "Encrypting payload data..."]);

@@ -565,7 +565,7 @@ export function ParticleHero() {
                     <span>Technologies & AI</span>
                   </div>
                   <p className="text-xs text-zinc-300 leading-relaxed font-mono">
-                    AI Development, Prompt Engineering, Blockchain, Cybersecurity, Git, GitHub
+                    AI Development, Prompt Engineering, Blockchain, Cybersecurity, Ethical Hacking, Game Development, Git, GitHub
                   </p>
                 </div>
               </div>

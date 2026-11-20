@@ -17,7 +17,10 @@ import {
   Laptop,
   Cpu,
   MessageSquare,
-  Monitor
+  Monitor,
+  Shield,
+  ShieldAlert,
+  Gamepad2
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData, Project } from "@/data/portfolioData";
@@ -295,7 +298,9 @@ export const SkillsSection: React.FC = () => {
       title: "Technologies & AI",
       items: [
         { name: "Blockchain Development", icon: <Cpu className="w-5 h-5 text-yellow-500" />, color: "#ffd700" },
-        { name: "Cybersecurity Fundamentals", icon: <Award className="w-5 h-5 text-red-500" />, color: "#ef4444" },
+        { name: "Cybersecurity", icon: <Shield className="w-5 h-5 text-red-500" />, color: "#ef4444" },
+        { name: "Ethical Hacking", icon: <ShieldAlert className="w-5 h-5 text-emerald-400" />, color: "#10b981" },
+        { name: "Game Development", icon: <Gamepad2 className="w-5 h-5 text-purple-400" />, color: "#a855f7" },
         { name: "Prompt Engineering", icon: <PromptIcon />, color: "#fbbf24" },
         { name: "AI Development", icon: <AiIcon />, color: "#a855f7" },
         { name: "Git", icon: <Laptop className="w-5 h-5 text-orange-500" />, color: "#F05032" },
@@ -368,7 +373,7 @@ export default function PremiumLayout() {
     setFormStatus("sending");
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/sohamgamer99@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/sohammalekar29@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
